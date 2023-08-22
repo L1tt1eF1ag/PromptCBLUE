@@ -323,7 +323,7 @@ class MyTrainingArguments(TrainingArguments):
     modules_to_save : Optional[str] = field(default='embed_tokens,lm_head')
     debug_mode : Optional[bool] = field(default=False)
     peft_path : Optional[str] = field(default=None)
-    leraning_rate : Optional[float] = field(default=1e-5)
+    learning_rate : Optional[float] = field(default=1e-5)
     predict_with_generate : Optional[bool] = field(default=False)
 
 
@@ -612,7 +612,7 @@ def main():
             revision=model_args.model_revision,
             use_auth_token=True if model_args.use_auth_token else None,
             torch_dtype=torch_dtype,
-            # device_map="auto",
+            device_map="auto",
             # low_cpu_mem_usage=True
         ).half()
     else:
